@@ -1,0 +1,32 @@
+version: '3'
+# build image, khai báo container
+services:
+  mysql_db:
+    image: mysql
+    # build:
+    container_name: mysql_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_db:/var/lib/mysql
+    networks:
+      - node-network
+  pinterest:
+    depends_on:
+      - mysql_db
+    build: .
+    container_name: pinterest
+    environment:
+      - DATABASE_URL=mysql://root:1234@mysql_db:3306/db_pinterest?schema=public
+    ports:
+      - 8080:8080
+    networks:
+      - node-network
+    restart: always
+volumes:
+  mysql_db:
+    driver: local
+networks:
+  node-network:
