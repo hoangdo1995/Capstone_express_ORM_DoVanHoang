@@ -15,13 +15,14 @@ const login = async(req,res)=>{
                 email
             }
         })
-        console.log(checkEmail);
         if(checkEmail){
             //nếu tồn tại
             //kiểm tra password
             const UserLogin = await models.user.findOne({
+                attributes:['password','full_name'],
                 where:{email}
-            })
+            });
+            const name = UserLogin.full_name;
             bcrypt.compare(password,UserLogin.password,(err,result)=>{
                 if(err){
                     console.log(err);
@@ -32,7 +33,7 @@ const login = async(req,res)=>{
                     //authorization
                     //gửi mã token
                     const token = jwt.sign({email},process.env.SECRET_KEY,{expiresIn:'1h'});
-                    successCode(res,{email,password,token},"Đăng nhập thành công!");
+                    successCode(res,{email,name,token},"Đăng nhập thành công!");
                 }
                 else{
                     //sai pass
@@ -89,6 +90,39 @@ const signUp = async(req,res)=>{
         errorCode(res,error,`Đã xảy ra lỗi!,${error}`);
     }
 }
+//hàm update thông tin người dùng
+const updateUser = async(req,res)=>{
+    try {
+        //lấy dử liệu update
+        const {full_name,avatar,age} = req.body;
+        let userUpdate ={};
+        if(full_name){
+            userUpdate={...userUpdate,full_name:full_name};
+        }
+        if(avatar){
+            userUpdate={...userUpdate,avatar:avatar};
+        }
+        if(age){
+            userUpdate={...userUpdate,age:age};
+        }
+        //kiểm tra thông tin user_id
+        const user_id = await getUserIdByToken(req);
+        //thực hiện update
+        await models.user.update(userUpdate,
+            {
+                where:
+                {
+                    user_id
+                }
+            })
+            // trả về kết quả
+        successCode(res,userUpdate,'Update thành công!');
+        
+    } catch (error) {
+        //trả về lỗi
+        errorCode(res,error,`Đã xảy ra lỗi! ${error}`);
+    }
+}
 
 const getUserInfo = async(req,res)=>{
     try {
@@ -142,4 +176,4 @@ const getImageByUserId = async(req,res)=>{
     }
 }
 
-export {login,signUp,getUserInfo,getSaveImageByUserId,getImageByUserId}
+export {login,signUp,getUserInfo,getSaveImageByUserId,getImageByUserId,updateUser}
