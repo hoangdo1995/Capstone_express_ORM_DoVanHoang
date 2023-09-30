@@ -179,4 +179,15 @@ const getImageByUserId = async(req,res)=>{
     }
 }
 
-export {login,signUp,getUserInfo,getSaveImageByUserId,getImageByUserId,updateUser}
+const storageImage = async(req,res)=>{
+    try {
+        const {image_id} = req.params;
+        const user_id = await getUserIdByToken(req);
+        await models.storage_image.create({user_id,image_id});
+        successCode(res,{user_id,image_id},'Lưu hình ảnh thành công!')
+    } catch (error) {
+        errorCode(res,{error},`Đã xảy ra lỗi! ${error}`);
+    }
+} 
+
+export {login,signUp,getUserInfo,getSaveImageByUserId,getImageByUserId,updateUser,storageImage}
