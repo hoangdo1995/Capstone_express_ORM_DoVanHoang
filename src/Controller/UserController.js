@@ -126,9 +126,12 @@ const updateUser = async(req,res)=>{
 
 const getUserInfo = async(req,res)=>{
     try {
-        const decode = await getUserIdByToken(req);
+        const user_id = await getUserIdByToken(req);
+        
         const data = await models.user.findOne({
-            where:decode.email,
+            where:{
+                user_id
+            },
             attributes:{exclude:"password"}
             }
         )
