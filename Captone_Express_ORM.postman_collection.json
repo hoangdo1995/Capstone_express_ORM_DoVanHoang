@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "711e9b87-eaec-4155-bc78-7532c4a12f0d",
+		"name": "Captone_Express_ORM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26735159",
+		"_collection_link": "https://dark-rocket-431428.postman.co/workspace/Api-Qu%25E1%25BA%25A3n-l%25C3%25BD-sinh-vi%25C3%25AAn~1e03ecc9-4bd5-4033-a5ef-35bd6df650ea/collection/26735159-711e9b87-eaec-4155-bc78-7532c4a12f0d?action=share&source=collection_link&creator=26735159"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\":\"Hoàng Đỗ\",\r\n    \"email\":\"test1@gmail.com\",\r\n    \"password\":\"1234\",\r\n    \"age\":\"12\",\r\n    \"avatar\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/user/sign-up",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test1@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/user/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvYW5nZG9AZ21haWwuY29tIiwiaWF0IjoxNjk2MDYxNzY4LCJleHAiOjE2OTYwNjUzNjh9.TqxglZByl3oLlvr6R01Vu7iXEts_fkKwGRW8hwK9CbE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\":\"Hoàng lamda\",\r\n    \"avatar\":\"avatar vip\",\r\n    \"age\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/user/update",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserInformation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2NTIxMywiZXhwIjoxNjk2MDY4ODEzfQ.ZsFLoaCPOArx2aBKhA3NMGEXqz5ghDxWWyyRa8J7dDQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/user/info",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSavedImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/user/image-save/6",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"image-save",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImageByUserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/user/image-create/6",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"image-create",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SaveImage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2NDA4OCwiZXhwIjoxNjk2MDY3Njg4fQ.p6NA5BkR7tueQTfne8QuWSvIiaLCyiBweFAXftYSbRI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/user/storage-image/5",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"storage-image",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "image",
+			"item": [
+				{
+					"name": "getImages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/image/getImages",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"getImages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImagesByPage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/image/get-images-by-page/5/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"get-images-by-page",
+								"5",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImageByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/image//get-image-by-name/image 13",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"",
+								"get-image-by-name",
+								"image 13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImageIInforById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/image/get-image-infor-by-id/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"get-image-infor-by-id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkImageSaved",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvYW5nQGdtYWlsLmNvbSIsImlhdCI6MTY5NTI3ODcwNywiZXhwIjoxNjk1MjgyMzA3fQ.laqQEk4qsXraVWNbJtvwl1ybXILLU0651jc-GkEtMcU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/image/check-image-saved/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"check-image-saved",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImage",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvYW5nQGdtYWlsLmNvbSIsImlhdCI6MTY5NDcyODI5MywiZXhwIjoxNjk0NzMODkzfQ.4iFQxhFiVdjJ_-QyLakTkiNr9N7F-m-jIu0enxQ0Izg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/image/delete-image/25",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"delete-image",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postImage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2NDA4OCwiZXhwIjoxNjk2MDY3Njg4fQ.p6NA5BkR7tueQTfne8QuWSvIiaLCyiBweFAXftYSbRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ASUS/OneDrive/Máy tính/h@#!372.jpg"
+								},
+								{
+									"key": "image_description",
+									"value": "Hình ảnh demo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/api/image/upload",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "getCommentByImageId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvYW5nZG9AZ21haWwuY29tIiwiaWF0IjoxNjk2MDYwOTgxLCJleHAiOjE2OTYwNjQ1ODF9.IPz071BXMOXeRNIZsVT--GVjzuXS_5e1uFQxJCrJt9k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/api/comment/get-comment-by-iamge-id/5",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"get-comment-by-iamge-id",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "commentImage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvYW5nZG9AZ21haWwuY29tIiwiaWF0IjoxNjk2MDYwOTgxLCJleHAiOjE2OTYwNjQ1ODF9.IPz071BXMOXeRNIZsVT--GVjzuXS_5e1uFQxJCrJt9k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image_id\":\"\",\r\n    \"content\":\"Tối thích hình ảnh này\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/comment/comment-image",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"comment-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
